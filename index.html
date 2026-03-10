@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign & Verify Lobstar Image</title>
+</head>
+<body>
+  <h2>Sign & Verify Lobstar Image</h2>
+  <p>This page lets you sign the Lobstar image URL with your Phantom wallet.</p>
+
+  <button id="signButton">Sign Image</button>
+  <button id="verifyButton">Verify Signature</button>
+
+  <pre id="output" style="background:#f0f0f0; padding:10px;"></pre>
+
+  <script>
+    let signedData;
+
+    document.getElementById("signButton").onclick = async () => {
+      const provider = window.phantom?.solana;
+      const out = document.getElementById("output");
+
+      if (!provider || !provider.isPhantom) {
+        out.textContent = "❌ Phantom Wallet not detected. Please install Phantom first.";
+        return;
+      }
+
+      try {
+        await provider.connect();
+
+        const imageUrl = "https://lobstarwilde.ai/images/gallery/squaring_the_circle.jpg";
+        const message = `I claim ownership of this image: ${imageUrl}`;
+        const encoded = new TextEncoder().encode(message);
+
+        const signed = await provider.signMessage(encoded, "utf8");
+
+        signedData = {
+          publicKey: provider.publicKey.toString(),
+          signature: Array.from(signed.signature),
+          message
+        };
+
+        out.textContent = `
+✅ Signed!
+Wallet Public Key: ${signedData.publicKey}
+Signature (base58): ${signed.signature}
+Message:
+${signedData.message}
+        `;
+      } catch (err) {
+        out.textContent = "❌ Signing error: " + err.message;
+      }
+    };
+
+    document.getElementById("verifyButton").onclick = () => {
+      const out = document.getElementById("output");
+
+      if (!signedData) {
+        out.textContent = "⚠️ No signed message found. Sign first.";
+        return;
+      }
+
+      let base58 = (() => {
+        const alphabet = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+        return (bytes) => {
+          let n = BigInt(0);
+          for (let b of bytes) n = (n << 8n) + BigInt(b);
+          let result = "";
+          while (n > 0n) {
+            const mod = n % 58n;
+            result = alphabet[Number(mod)] + result;
+            n = n / 58n;
+          }
+          return result;
+        };
+      })();
+
+      const sigBase58 = base58(signedData.signature);
+
+      out.textContent += `
+🔎 Converted returned signature to Base58:
+${sigBase58}
+      `;
+    };
+  </script>
+</body>
+</html>
