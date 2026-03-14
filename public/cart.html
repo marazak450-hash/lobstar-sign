@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart – Freewill</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <a class="brand" href="/">Freewill</a>
+    <nav>
+      <a href="/products.html">Shop</a>
+      <a href="/cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <span id="nav-auth">
+        <a href="/login.html">Login</a>
+        <a href="/register.html">Register</a>
+      </span>
+      <button id="logout-btn" style="display:none" class="btn btn-sm">Logout</button>
+    </nav>
+  </header>
+
+  <main class="section">
+    <h1 class="section-title">Your Cart</h1>
+    <div id="cart-container">
+      <p class="loading">Loading cart…</p>
+    </div>
+    <div id="cart-summary" style="display:none">
+      <p class="cart-total">Total: <strong id="cart-total-amount">$0.00</strong></p>
+      <a href="/checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+      <button id="clear-cart-btn" class="btn btn-danger">Clear Cart</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Freewill. All rights reserved.</p>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

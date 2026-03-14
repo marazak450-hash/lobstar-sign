@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout – Freewill</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <a class="brand" href="/">Freewill</a>
+    <nav>
+      <a href="/products.html">Shop</a>
+      <a href="/cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <button id="logout-btn" style="display:none" class="btn btn-sm">Logout</button>
+    </nav>
+  </header>
+
+  <main class="section form-page">
+    <h1 class="section-title">Checkout</h1>
+
+    <form id="checkout-form" novalidate>
+      <fieldset>
+        <legend>Shipping Address</legend>
+        <label for="street">Street Address</label>
+        <input id="street" name="street" type="text" class="input" required autocomplete="street-address" maxlength="200" />
+
+        <label for="city">City</label>
+        <input id="city" name="city" type="text" class="input" required autocomplete="address-level2" maxlength="100" />
+
+        <label for="postalCode">Postal Code</label>
+        <input id="postalCode" name="postalCode" type="text" class="input" required autocomplete="postal-code" maxlength="20" />
+
+        <label for="country">Country</label>
+        <input id="country" name="country" type="text" class="input" required autocomplete="country-name" maxlength="100" />
+      </fieldset>
+
+      <div id="order-summary" class="order-summary">
+        <h3>Order Summary</h3>
+        <p class="loading">Loading cart…</p>
+      </div>
+
+      <p id="checkout-error" class="error" style="display:none"></p>
+      <button type="submit" class="btn btn-primary" id="place-order-btn">Place Order</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Freewill. All rights reserved.</p>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/checkout.js"></script>
+</body>
+</html>
