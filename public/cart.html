@@ -3,38 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cart – Freewill</title>
+  <title>Your Cart – Freewill</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
+  <div class="pattern-border"></div>
+
   <header class="navbar">
-    <a class="brand" href="/">Freewill</a>
+    <a class="brand" href="/">
+      <span class="brand-name">Freewill</span>
+      <span class="brand-tagline">Atlas Mountain Yarn · Morocco</span>
+    </a>
     <nav>
       <a href="/products.html">Shop</a>
-      <a href="/cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a href="/cart.html" class="cart-link">Cart <span class="cart-badge" id="cart-count">0</span></a>
       <span id="nav-auth">
         <a href="/login.html">Login</a>
         <a href="/register.html">Register</a>
       </span>
-      <button id="logout-btn" style="display:none" class="btn btn-sm">Logout</button>
+      <button id="logout-btn" style="display:none" class="btn btn-sm btn-gold">Logout</button>
     </nav>
   </header>
 
-  <main class="section">
-    <h1 class="section-title">Your Cart</h1>
+  <main class="cart-wrap">
+    <p class="section-label" style="margin-bottom:.5rem">&#9670; Your Basket</p>
+    <h1 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--brown);margin-bottom:2rem">Shopping Cart</h1>
+
     <div id="cart-container">
-      <p class="loading">Loading cart…</p>
+      <p class="loading">Loading your cart…</p>
     </div>
-    <div id="cart-summary" style="display:none">
-      <p class="cart-total">Total: <strong id="cart-total-amount">$0.00</strong></p>
-      <a href="/checkout.html" class="btn btn-primary">Proceed to Checkout</a>
-      <button id="clear-cart-btn" class="btn btn-danger">Clear Cart</button>
+
+    <div id="cart-summary-block" style="display:none">
+      <div class="cart-summary-card">
+        <div class="cart-total-row">
+          <span class="cart-total-label">Order Total</span>
+          <span class="cart-total-amount" id="cart-total-amount">$0.00</span>
+        </div>
+        <div class="cart-actions">
+          <a href="/checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+          <button id="clear-cart-btn" class="btn btn-danger">Clear Cart</button>
+          <a href="/products.html" class="btn btn-outline" style="background:transparent;color:var(--terracotta);border-color:var(--terracotta)">Keep Shopping</a>
+        </div>
+        <p style="margin-top:1rem;font-size:.8rem;color:var(--muted)">🌿 Free shipping on orders over $60 · Plastic-free packaging</p>
+      </div>
     </div>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2026 Freewill. All rights reserved.</p>
+  <footer class="footer" style="margin-top:4rem">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Freewill. Made with ♥ in the Atlas Mountains, Morocco.</p>
+    </div>
   </footer>
 
   <script src="/js/app.js"></script>

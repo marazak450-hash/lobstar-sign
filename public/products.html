@@ -3,42 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop – Freewill</title>
+  <title>Shop – Freewill Atlas Yarn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
+  <div class="pattern-border"></div>
+
   <header class="navbar">
-    <a class="brand" href="/">Freewill</a>
+    <a class="brand" href="/">
+      <span class="brand-name">Freewill</span>
+      <span class="brand-tagline">Atlas Mountain Yarn · Morocco</span>
+    </a>
     <nav>
       <a href="/products.html">Shop</a>
-      <a href="/cart.html">Cart (<span id="cart-count">0</span>)</a>
+      <a href="/#story" class="nav-hide-sm">Our Story</a>
+      <a href="/cart.html" class="cart-link">
+        Cart <span class="cart-badge" id="cart-count">0</span>
+      </a>
       <span id="nav-auth">
         <a href="/login.html">Login</a>
         <a href="/register.html">Register</a>
       </span>
-      <button id="logout-btn" style="display:none" class="btn btn-sm">Logout</button>
+      <button id="logout-btn" style="display:none" class="btn btn-sm btn-gold">Logout</button>
     </nav>
   </header>
 
-  <main class="section">
-    <h1 class="section-title">All Products</h1>
-
-    <!-- Filters -->
-    <div class="filters">
-      <input id="filter-category" type="text" placeholder="Category…" class="input" />
-      <input id="filter-min" type="number" placeholder="Min price" class="input" min="0" step="0.01" />
-      <input id="filter-max" type="number" placeholder="Max price" class="input" min="0" step="0.01" />
-      <button id="filter-btn" class="btn btn-primary">Filter</button>
+  <!-- Shop Header -->
+  <div class="shop-header">
+    <div class="shop-header-inner">
+      <p class="section-label">&#9670; The Collection</p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--brown)">
+        Atlas Mountain Yarns
+      </h1>
+      <p style="color:var(--muted);margin-top:.4rem;font-size:.9rem">
+        All yarns are 100% organic · hand-dyed with natural plants &amp; minerals · made in Morocco
+      </p>
+      <div class="filters">
+        <select id="filter-category" class="filter-select">
+          <option value="">All Weights</option>
+          <option value="Fingering">Fingering (4 ply)</option>
+          <option value="DK">DK (8 ply)</option>
+          <option value="Aran">Aran (10 ply)</option>
+          <option value="Bulky">Bulky (12 ply)</option>
+        </select>
+        <input id="filter-min" type="number" placeholder="Min $" class="filter-input" min="0" step="1" style="width:90px" />
+        <input id="filter-max" type="number" placeholder="Max $" class="filter-input" min="0" step="1" style="width:90px" />
+        <button id="filter-btn" class="btn btn-primary">Filter</button>
+        <span id="product-count" style="color:var(--muted);font-size:.85rem;margin-left:.5rem"></span>
+      </div>
     </div>
+  </div>
 
+  <main class="section" style="padding-top:2.5rem">
     <div class="product-grid" id="product-grid">
-      <p class="loading">Loading products…</p>
+      <p class="loading">Loading collection…</p>
     </div>
   </main>
 
   <footer class="footer">
-    <p>&copy; 2026 Freewill. All rights reserved.</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">Freewill</span>
+        <p>Natural, organic, hand-dyed yarn from the Atlas Mountains of Morocco.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="/products.html">All Yarns</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="/#story">Our Story</a>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Freewill. Made with ♥ in the Atlas Mountains, Morocco.</p>
+    </div>
   </footer>
 
   <script src="/js/app.js"></script>

@@ -4,10 +4,10 @@
 
 async function loadCart() {
   const container = document.getElementById("cart-container");
-  const summary = document.getElementById("cart-summary");
+  const summaryBlock = document.getElementById("cart-summary-block");
 
   if (!getToken()) {
-    container.textContent = "Please log in to view your cart.";
+    container.innerHTML = "<div class='empty-state'><div class='empty-icon'>🔒</div><p>Please <a href='/login.html'>log in</a> to view your cart.</p></div>";
     return;
   }
 
@@ -16,7 +16,7 @@ async function loadCart() {
     container.innerHTML = "";
 
     if (!items.length) {
-      container.textContent = "Your cart is empty.";
+      container.innerHTML = "<div class='empty-state'><div class='empty-icon'>🧶</div><p>Your cart is empty.<br><a href='/products.html' class='btn btn-primary' style='margin-top:1rem;display:inline-block'>Browse the Collection</a></p></div>";
       return;
     }
 
@@ -24,46 +24,46 @@ async function loadCart() {
       const row = document.createElement("div");
       row.className = "cart-item";
 
+      const emojiEl = document.createElement("div");
+      emojiEl.className = "cart-item-emoji";
+      emojiEl.textContent = "🧶";
+
       const info = document.createElement("div");
+      info.className = "cart-item-info";
       const nameEl = document.createElement("strong");
       nameEl.textContent = item.name;
-      const priceEl = document.createElement("div");
-      priceEl.textContent = `$${parseFloat(item.price).toFixed(2)} each`;
-      info.append(nameEl, priceEl);
+      const priceEl = document.createElement("small");
+      priceEl.textContent = `$${parseFloat(item.price).toFixed(2)} per skein`;
+      info.append(nameEl, document.createElement("br"), priceEl);
 
       const qtyInput = document.createElement("input");
       qtyInput.type = "number";
       qtyInput.min = 0;
       qtyInput.max = 100;
       qtyInput.value = item.quantity;
-      qtyInput.className = "input";
-      qtyInput.style.width = "70px";
+      qtyInput.className = "input cart-item-qty";
       qtyInput.addEventListener("change", async () => {
         const qty = parseInt(qtyInput.value, 10);
         if (isNaN(qty) || qty < 0) { qtyInput.value = item.quantity; return; }
         try {
-          await apiFetch(`/cart/${item.productId}`, {
-            method: "PATCH",
-            body: JSON.stringify({ quantity: qty }),
-          });
+          await apiFetch(`/cart/${item.productId}`, { method: "PATCH", body: JSON.stringify({ quantity: qty }) });
           loadCart();
           updateCartCount();
-        } catch (err) {
-          alert(err.message);
-        }
+        } catch (err) { alert(err.message); }
       });
 
       const lineTotal = document.createElement("div");
+      lineTotal.className = "cart-item-total";
       lineTotal.textContent = `$${(item.price * item.quantity).toFixed(2)}`;
 
-      row.append(info, qtyInput, lineTotal);
+      row.append(emojiEl, info, qtyInput, lineTotal);
       container.appendChild(row);
     });
 
     document.getElementById("cart-total-amount").textContent = `$${total.toFixed(2)}`;
-    summary.style.display = "flex";
+    summaryBlock.style.display = "block";
 
-  } catch (err) {
+  } catch {
     container.textContent = "Could not load cart.";
   }
 }
@@ -77,8 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
       await apiFetch("/cart", { method: "DELETE" });
       loadCart();
       updateCartCount();
-    } catch (err) {
-      alert(err.message);
-    }
+    } catch (err) { alert(err.message); }
   });
 });

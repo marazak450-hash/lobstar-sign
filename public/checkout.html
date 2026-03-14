@@ -4,50 +4,78 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Checkout – Freewill</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
+  <div class="pattern-border"></div>
+
   <header class="navbar">
-    <a class="brand" href="/">Freewill</a>
+    <a class="brand" href="/">
+      <span class="brand-name">Freewill</span>
+      <span class="brand-tagline">Atlas Mountain Yarn · Morocco</span>
+    </a>
     <nav>
-      <a href="/products.html">Shop</a>
-      <a href="/cart.html">Cart (<span id="cart-count">0</span>)</a>
-      <button id="logout-btn" style="display:none" class="btn btn-sm">Logout</button>
+      <a href="/cart.html">&#8592; Back to Cart</a>
+      <button id="logout-btn" style="display:none" class="btn btn-sm btn-gold">Logout</button>
     </nav>
   </header>
 
-  <main class="section form-page">
-    <h1 class="section-title">Checkout</h1>
+  <main class="checkout-wrap">
+    <!-- Shipping form -->
+    <div>
+      <p class="section-label" style="margin-bottom:.5rem">&#9670; Secure Checkout</p>
+      <h1 style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--brown);margin-bottom:2rem">Shipping Details</h1>
 
-    <form id="checkout-form" novalidate>
-      <fieldset>
-        <legend>Shipping Address</legend>
-        <label for="street">Street Address</label>
-        <input id="street" name="street" type="text" class="input" required autocomplete="street-address" maxlength="200" />
+      <form id="checkout-form" novalidate style="gap:1.25rem">
+        <div class="form-group">
+          <label for="street">Street Address</label>
+          <input id="street" name="street" type="text" class="input" required autocomplete="street-address" maxlength="200" placeholder="123 Main Street" />
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" class="input" required autocomplete="address-level2" maxlength="100" placeholder="City" />
+          </div>
+          <div class="form-group">
+            <label for="postalCode">Postal Code</label>
+            <input id="postalCode" name="postalCode" type="text" class="input" required autocomplete="postal-code" maxlength="20" placeholder="12345" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input id="country" name="country" type="text" class="input" required autocomplete="country-name" maxlength="100" placeholder="Your country" />
+        </div>
 
-        <label for="city">City</label>
-        <input id="city" name="city" type="text" class="input" required autocomplete="address-level2" maxlength="100" />
+        <div style="background:var(--cream-dk);border-radius:var(--radius);padding:1rem;font-size:.85rem;color:var(--muted)">
+          🌿 Your order will be carefully hand-packed in recycled, plastic-free materials and shipped from Marrakech within 3–5 business days.
+        </div>
 
-        <label for="postalCode">Postal Code</label>
-        <input id="postalCode" name="postalCode" type="text" class="input" required autocomplete="postal-code" maxlength="20" />
+        <p id="checkout-error" class="error" style="display:none"></p>
+        <button type="submit" class="btn btn-primary" id="place-order-btn" style="width:100%;padding:1rem;font-size:1rem">
+          Place Order
+        </button>
+      </form>
+    </div>
 
-        <label for="country">Country</label>
-        <input id="country" name="country" type="text" class="input" required autocomplete="country-name" maxlength="100" />
-      </fieldset>
-
-      <div id="order-summary" class="order-summary">
+    <!-- Order summary -->
+    <div>
+      <div class="order-summary-card" style="position:sticky;top:90px">
         <h3>Order Summary</h3>
-        <p class="loading">Loading cart…</p>
+        <div id="order-summary-items">
+          <p class="loading">Loading…</p>
+        </div>
       </div>
-
-      <p id="checkout-error" class="error" style="display:none"></p>
-      <button type="submit" class="btn btn-primary" id="place-order-btn">Place Order</button>
-    </form>
+    </div>
   </main>
 
-  <footer class="footer">
-    <p>&copy; 2026 Freewill. All rights reserved.</p>
+  <footer class="footer" style="margin-top:4rem">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Freewill. Made with ♥ in the Atlas Mountains, Morocco.</p>
+    </div>
   </footer>
 
   <script src="/js/app.js"></script>

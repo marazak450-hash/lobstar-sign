@@ -3,65 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Freewill – Shop with Freedom</title>
+  <title>Freewill – Atlas Mountain Yarn | Morocco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
 
-  <!-- ── Navigation ── -->
+  <!-- ── Top pattern strip ── -->
+  <div class="pattern-border"></div>
+
+  <!-- ── Navbar ── -->
   <header class="navbar">
-    <a class="brand" href="/">Freewill</a>
+    <a class="brand" href="/">
+      <span class="brand-name">Freewill</span>
+      <span class="brand-tagline">Atlas Mountain Yarn · Morocco</span>
+    </a>
     <nav>
-      <a href="/products.html">Shop</a>
-      <a href="/cart.html" id="nav-cart">Cart (<span id="cart-count">0</span>)</a>
+      <a href="/products.html" class="nav-hide-sm">Shop</a>
+      <a href="#story" class="nav-hide-sm">Our Story</a>
+      <a href="/cart.html" class="cart-link">
+        Cart <span class="cart-badge" id="cart-count">0</span>
+      </a>
       <span id="nav-auth">
         <a href="/login.html">Login</a>
         <a href="/register.html">Register</a>
       </span>
-      <button id="logout-btn" style="display:none" class="btn btn-sm">Logout</button>
+      <button id="logout-btn" style="display:none" class="btn btn-sm btn-gold">Logout</button>
     </nav>
   </header>
 
   <!-- ── Hero ── -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1>Shop with Freedom.</h1>
-      <p>Quality products, fair prices, and secure checkout – every time.</p>
-      <a href="/products.html" class="btn btn-primary">Browse Shop</a>
+      <div class="hero-text">
+        <p class="hero-eyebrow">&#9670; Handcrafted in Morocco · Since 2010</p>
+        <h1 class="hero-title">
+          Colors Born<br>from the <span>Atlas</span><br>Mountains
+        </h1>
+        <p class="hero-subtitle">
+          Natural hand-dyed, organic yarn spun by Berber artisans in the highlands
+          of Morocco. Every skein carries centuries of tradition.
+        </p>
+        <div class="hero-ctas">
+          <a href="/products.html" class="btn btn-primary">Shop the Collection</a>
+          <a href="#story" class="btn btn-outline">Our Story</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="yarn-display">
+          <div class="yarn-ball">
+            <div class="yarn-ball-inner"></div>
+          </div>
+          <div class="color-swatches">
+            <div class="swatch" style="background:#C4622D" title="Terracotta"></div>
+            <div class="swatch" style="background:#D4A017" title="Saffron"></div>
+            <div class="swatch" style="background:#1B3A6B" title="Indigo"></div>
+            <div class="swatch" style="background:#6B3A2A" title="Walnut"></div>
+            <div class="swatch" style="background:#4A7C59" title="Cedar"></div>
+            <div class="swatch" style="background:#8B2252" title="Henna Rose"></div>
+            <div class="swatch" style="background:#F0C040" title="Gold"></div>
+            <div class="swatch" style="background:#FAF7F0" title="Natural"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ── Featured Products (loaded via JS) ── -->
+  <!-- ── Pattern strip ── -->
+  <div class="pattern-border"></div>
+
+  <!-- ── Story ── -->
+  <section class="story-section" id="story">
+    <div class="story-grid">
+      <div class="story-text-col">
+        <p class="story-label">&#9670; Our Story</p>
+        <h2 class="story-title">Woven from the<br><em>Heart of Morocco</em></h2>
+        <p class="story-text">
+          High in the Atlas Mountains, where the air is thin and the light turns gold
+          at dusk, Berber women have been spinning yarn for over a thousand years.
+          Freewill was born to bring that living tradition to the world — unchanged,
+          uncompromised.
+        </p>
+        <p class="story-text">
+          We work directly with small cooperatives of artisan women in the Azilal and
+          Ourika valleys. Every skein is hand-spun from local organic wool, then
+          dyed using plants, minerals, and roots found in the mountain landscape:
+          saffron, indigo, henna, walnut shell, pomegranate skin.
+        </p>
+        <p class="story-text">
+          No chemicals. No shortcuts. Just fibre, water, fire, and skill passed down
+          through generations.
+        </p>
+        <p class="story-signature">— The Freewill Family</p>
+      </div>
+      <div class="atlas-visual">
+        <div class="atlas-card">
+          <div class="icon">🏔️</div>
+          <h4>Atlas Mountains</h4>
+          <p>Sourced from family farms at 2,000 m altitude — pure mountain air, pristine wool</p>
+        </div>
+        <div class="atlas-card">
+          <div class="icon">🌿</div>
+          <h4>100% Organic</h4>
+          <p>No pesticides, no synthetic dyes — certified organic from fleece to skein</p>
+        </div>
+        <div class="atlas-card">
+          <div class="icon">🤲</div>
+          <h4>Artisan Made</h4>
+          <p>Every skein hand-spun &amp; dyed by Berber women artisans earning fair wages</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Featured Products ── -->
   <section class="section">
-    <h2 class="section-title">Featured Products</h2>
+    <div class="section-header">
+      <p class="section-label">&#9670; New Arrivals</p>
+      <h2 class="section-title">The Collection</h2>
+      <p class="section-subtitle">Each skein is unique — natural dye variations make every piece one-of-a-kind.</p>
+    </div>
     <div class="product-grid" id="featured-grid">
-      <p class="loading">Loading products…</p>
+      <p class="loading">Loading collection…</p>
+    </div>
+    <div style="text-align:center;margin-top:3rem">
+      <a href="/products.html" class="btn btn-primary">View Full Collection</a>
     </div>
   </section>
 
-  <!-- ── Trust Badges ── -->
+  <!-- ── Process ── -->
+  <section class="process-section">
+    <div class="process-inner">
+      <div class="section-header">
+        <p class="section-label">&#9670; From Mountain to You</p>
+        <h2 class="section-title" style="color:#fff">How Every Skein is Made</h2>
+        <p class="section-subtitle" style="color:var(--sand);opacity:.8">A slow, careful process that cannot be rushed</p>
+      </div>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>Shearing</h4>
+          <p>Local sheep are sheared once a year in spring using traditional hand tools on mountain farms.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>Washing &amp; Carding</h4>
+          <p>Fleece is washed in mountain spring water and carded by hand to align the fibres.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>Natural Dyeing</h4>
+          <p>Skeins are simmered in plant-based dye baths — saffron, indigo, henna, walnut — for rich, lasting colour.</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>Hand Spinning</h4>
+          <p>Artisan women spin each skein on a traditional drop spindle, giving it its signature character and feel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Colour Palette ── -->
+  <section class="palette-section">
+    <div class="palette-inner">
+      <div class="section-header">
+        <p class="section-label">&#9670; Colour Palette</p>
+        <h2 class="section-title">Colours of the Atlas</h2>
+        <p class="section-subtitle">Every colour comes from nature. Subtle variations between skeins are the mark of authenticity.</p>
+      </div>
+      <div class="color-palette-grid">
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#FAF7F0"></div><div class="palette-chip-label">Natural</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#C4622D"></div><div class="palette-chip-label">Terracotta</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#D4A017"></div><div class="palette-chip-label">Saffron</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#1B3A6B"></div><div class="palette-chip-label">Atlas Indigo</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#8B2252"></div><div class="palette-chip-label">Henna Rose</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#4A7C59"></div><div class="palette-chip-label">Cedar Green</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#6B3A2A"></div><div class="palette-chip-label">Walnut</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#E8A87C"></div><div class="palette-chip-label">Desert Sand</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#2C5F4A"></div><div class="palette-chip-label">Argan Green</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#7B3F00"></div><div class="palette-chip-label">Cinnamon</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#4A4E69"></div><div class="palette-chip-label">Twilight</div></div>
+        <div class="palette-chip"><div class="palette-chip-color" style="background:#2C1810"></div><div class="palette-chip-label">Dark Roast</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trust ── -->
   <section class="trust-section">
-    <div class="trust-badge">
-      <span class="badge-icon">&#128274;</span>
-      <p>SSL Encrypted<br>Checkout</p>
-    </div>
-    <div class="trust-badge">
-      <span class="badge-icon">&#128663;</span>
-      <p>Fast &amp; Free<br>Shipping Over $50</p>
-    </div>
-    <div class="trust-badge">
-      <span class="badge-icon">&#9989;</span>
-      <p>30-Day<br>Return Policy</p>
-    </div>
-    <div class="trust-badge">
-      <span class="badge-icon">&#128222;</span>
-      <p>24/7 Customer<br>Support</p>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">🌍</div>
+        <h4>Fair Trade</h4>
+        <p>Artisans earn above-market wages. Every purchase directly supports mountain communities.</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🌿</div>
+        <h4>100% Organic</h4>
+        <p>No synthetic chemicals. Plant-dyed, hand-processed, and biodegradable.</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📦</div>
+        <h4>Worldwide Shipping</h4>
+        <p>Shipped in recycled, plastic-free packaging from Marrakech to your door.</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">💛</div>
+        <h4>Happiness Guarantee</h4>
+        <p>Not in love with your yarn? We'll sort it — no questions asked.</p>
+      </div>
     </div>
   </section>
 
+  <!-- ── Newsletter ── -->
+  <section class="newsletter-section">
+    <div class="newsletter-inner">
+      <h2>Join the Freewill Circle</h2>
+      <p>New colours, limited batches, and stories from the mountains — delivered to your inbox.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); this.innerHTML='<p style=color:#fff;font-family:Playfair Display,serif;font-size:1.1rem>Thank you — welcome to the family! 🌿</p>'">
+        <input type="email" placeholder="Your email address" required class="input" style="background:#fff" />
+        <button type="submit" class="btn btn-gold">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
   <footer class="footer">
-    <p>&copy; 2026 Freewill. All rights reserved.</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">Freewill</span>
+        <p>Natural, organic, hand-dyed yarn from the Atlas Mountains of Morocco. Tradition in every thread.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <a href="/products.html">All Yarns</a>
+        <a href="/products.html?category=Fingering">Fingering Weight</a>
+        <a href="/products.html?category=DK">DK Weight</a>
+        <a href="/products.html?category=Bulky">Bulky Weight</a>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <a href="#story">Our Story</a>
+        <a href="#">The Artisans</a>
+        <a href="#">Sustainability</a>
+        <a href="#">Wholesale</a>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <a href="#">Shipping Info</a>
+        <a href="#">Returns</a>
+        <a href="#">Size Guide</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Freewill. Made with ♥ in the Atlas Mountains, Morocco.</p>
+    </div>
   </footer>
 
   <script src="/js/app.js"></script>

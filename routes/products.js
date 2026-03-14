@@ -6,9 +6,70 @@ const validate = require("../middleware/validate");
 
 // In-memory store (replace with Mongoose Product model in production)
 let products = [
-  { id: "1", name: "Wireless Headphones", price: 79.99, category: "Electronics", stock: 50, description: "Premium sound quality." },
-  { id: "2", name: "Running Shoes", price: 119.99, category: "Footwear", stock: 30, description: "Lightweight and durable." },
-  { id: "3", name: "Coffee Maker", price: 49.99, category: "Kitchen", stock: 20, description: "Brews a perfect cup every time." },
+  {
+    id: "1", name: "Saffron Gold – DK Weight", price: 28.00,
+    category: "DK", stock: 40, emoji: "🟡",
+    colors: ["#D4A017","#F0C040","#C4622D"],
+    weight: "DK (8 ply)", fiber: "100% Organic Merino Wool", skeinSize: "100g / 220m",
+    description: "Sun-kissed saffron gold harvested from Atlas fields. A warm, rich tone that shifts from deep amber to bright gold. Perfect for shawls, lightweight sweaters, and accessories.",
+    dyeSource: "Crocus sativus (saffron) & pomegranate skin"
+  },
+  {
+    id: "2", name: "Atlas Indigo – Fingering", price: 24.00,
+    category: "Fingering", stock: 35, emoji: "🔵",
+    colors: ["#1B3A6B","#2D5FA6","#4A4E69"],
+    weight: "Fingering (4 ply)", fiber: "100% Organic Merino Wool", skeinSize: "100g / 400m",
+    description: "Deep midnight indigo from wild-harvested woad plants. A timeless, meditative blue with subtle variations between skeins. Ideal for socks, delicate lace, and fine knits.",
+    dyeSource: "Indigofera tinctoria & woad leaves"
+  },
+  {
+    id: "3", name: "Terracotta Bloom – Aran", price: 32.00,
+    category: "Aran", stock: 25, emoji: "🟠",
+    colors: ["#C4622D","#9E4A1E","#E8A87C"],
+    weight: "Aran (10 ply)", fiber: "100% Organic Lamb Wool", skeinSize: "100g / 180m",
+    description: "The warm blush of Moroccan clay walls at sunset. Hand-dyed with madder root for a rich terracotta that mellows beautifully with washing. Great for cozy sweaters and winter wraps.",
+    dyeSource: "Rubia tinctorum (madder root)"
+  },
+  {
+    id: "4", name: "Henna Rose – DK Weight", price: 28.00,
+    category: "DK", stock: 30, emoji: "🌸",
+    colors: ["#8B2252","#B5446E","#D4789A"],
+    weight: "DK (8 ply)", fiber: "100% Organic Merino Wool", skeinSize: "100g / 220m",
+    description: "The ancient rose-red of henna celebrations. Harvested from lawsonia leaves used for centuries by Berber women. A deep, romantic pink with incredible depth and complexity.",
+    dyeSource: "Lawsonia inermis (henna leaves)"
+  },
+  {
+    id: "5", name: "Cedar Forest – Bulky", price: 38.00,
+    category: "Bulky", stock: 20, emoji: "🌲",
+    colors: ["#4A7C59","#2C5F4A","#7EB895"],
+    weight: "Bulky (12 ply)", fiber: "100% Organic Churro Wool", skeinSize: "100g / 120m",
+    description: "The living green of Atlas cedar forests. Dyed with cedar bark and nettles for a green that breathes. Luxuriously thick for fast, satisfying knitting on big needles.",
+    dyeSource: "Cedrus atlantica bark & Urtica dioica (nettle)"
+  },
+  {
+    id: "6", name: "Natural Undyed – Fingering", price: 20.00,
+    category: "Fingering", stock: 60, emoji: "🤍",
+    colors: ["#FAF7F0","#E8D5B0","#C8B89A"],
+    weight: "Fingering (4 ply)", fiber: "100% Organic Merino Wool", skeinSize: "100g / 400m",
+    description: "Pure, undyed, unbleached — the wool exactly as it came from the sheep. Three natural shades available: snow white, warm ivory, and oatmeal. A blank canvas for your own dye adventures.",
+    dyeSource: "Undyed – natural fleece colour"
+  },
+  {
+    id: "7", name: "Walnut Shadow – Aran", price: 32.00,
+    category: "Aran", stock: 18, emoji: "🤎",
+    colors: ["#6B3A2A","#8B4513","#3D2010"],
+    weight: "Aran (10 ply)", fiber: "100% Organic Lamb Wool", skeinSize: "100g / 180m",
+    description: "Rich chocolate-brown from walnut shells collected beneath ancient trees. A deep, moody earth tone with hints of amber and mahogany. Magnificent for textured cables and winter accessories.",
+    dyeSource: "Juglans regia (walnut shells & leaves)"
+  },
+  {
+    id: "8", name: "Desert Sunrise – DK Gradient", price: 36.00,
+    category: "DK", stock: 15, emoji: "🌅",
+    colors: ["#FAF7F0","#E8A87C","#C4622D","#D4A017"],
+    weight: "DK (8 ply)", fiber: "100% Organic Merino Wool", skeinSize: "150g / 330m",
+    description: "A rare hand-painted skein that transitions from natural ivory through desert sand to terracotta and gold — like watching the sun rise over the Sahara. Each skein is completely unique. Limited availability.",
+    dyeSource: "Multi: saffron, madder, pomegranate – hand painted"
+  },
 ];
 
 // ── GET /api/products ─────────────────────────────────────────────────────────
